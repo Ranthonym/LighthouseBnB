@@ -10,10 +10,13 @@ LIMIT 10;
 
 
 
+-- Alternatve join path
+
 -- SELECT reservations.*, properties.*, avg(property_reviews.rating) as average_rating
 --  FROM property_reviews
---  JOIN properties ON property_id = properties.id
---  JOIN reservations ON reservation_id = reservations.property_id
---  WHERE reservations.end_date < now()::date AND reservations.guest_id = 1
---  GROUP BY reservations.id, properties.id
+--  JOIN properties ON property_reviews.property_id = properties.id
+--  JOIN reservations ON properties.id = reservations.property_id
+--  WHERE reservations.end_date < now()::date 
+--  AND reservations.guest_id = 1
+--  GROUP BY  properties.id, reservations.id
 --  LIMIT 10;
